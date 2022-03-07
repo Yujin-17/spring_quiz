@@ -81,10 +81,11 @@
  		)
  	</insert>
  	
- 	<insert id="insertEstate" parameterType="com.quiz.lesson03.model.Estate"> 
- 			INSERT INTO `real_estate`
+ 	<insert id="insertEstateAsField" parameterType="map">
+ 		INSERT INTO `real_estate`
  		(
-			`address`
+			`realtorId`
+			,`address`
 			,`area`
 			,`type`
 			,`price`
@@ -94,7 +95,8 @@
  		)
  		VALUES
  		(
- 			#{address}
+ 			#{realtorId}
+ 			,#{address}
  			,#{area}
  			,#{type}
  			,#{price}
@@ -103,6 +105,8 @@
  			,now()
  		)
  	</insert>
+ 	
+
  </mapper>
  
  

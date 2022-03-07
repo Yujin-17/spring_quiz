@@ -26,13 +26,14 @@ public class EstateBO {
 		return estateDAO.selectEstateListByAreaPrice(area, price);
 	}
 	
-	public int addEstate(Estate estate) {	
+	public int addEstate(Estate estate) {
 		return estateDAO.insertEstate(estate);
 	}
 	
-//	public int addEstate(int realtorId, String address, int area, String type, int price, Integer rentPrice) {
-//		return estateDAO.insertEstate(realtorId, address, area, type, price, rentPrice);
-//	}
+	public int addEstateAsField(int realtorId, String address, int area, String type, int price, Integer rentPrice) {
+		return estateDAO.insertEstateAsField(realtorId, address, area, type, price, rentPrice);
+	}
+
 
 
 	

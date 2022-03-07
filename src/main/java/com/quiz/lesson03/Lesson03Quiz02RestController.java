@@ -2,6 +2,7 @@ package com.quiz.lesson03;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quiz.lesson03.bo.EstateBO;
@@ -13,7 +14,7 @@ public class Lesson03Quiz02RestController {
 	@Autowired
 	private EstateBO estateBO;
 	
-	// 요청 URL:  http://localhost/lesson03/quiz02/1
+	// 요청 URL : http://localhost/lesson03/quiz02/1
 	@RequestMapping("/lesson03/quiz02/1")
 	public String quiz02_1() {
 		Estate estate = new Estate();
@@ -23,17 +24,21 @@ public class Lesson03Quiz02RestController {
 		estate.setType("매매");
 		estate.setPrice(100000);
 		
-		int rowCount = estateBO.addEstate(estate);
-		return "입력성공:" + rowCount;
+		int row = estateBO.addEstate(estate);
+		return "입력 성공 : " + row;  
 		
+			
 	}
 	
-//	// 요청 URL: http://localhost/lesson03/quiz02/2?realtor_id=5
-//	@RequestMapping("/lesson03/quiz02/2")
-//	public String quiz02_2(
-//			@RequestParam("realtorId") int realtorId
-//			) {
-//		int row = estateBO.addEstate(5 ,"썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
-//		return "입력성공 : " + row; 
-//	}
+	// 요청  URL : http://localhost/lesson03/quiz02/2?realtor_id=5
+	@RequestMapping("lesson02/quiz02/2")
+	public String quiz02_2(
+			@RequestParam(value="realtorId") int realtorId
+			) {
+		int row = estateBO.addEstateAsField(realtorId, "쌍떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
+		
+		return "입력 성공 : " + row;
+	}
+	
+	
 }

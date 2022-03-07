@@ -17,14 +17,16 @@ public interface EstateDAO {
 	public List<Estate> selectEstateListByAreaPrice(
 			@Param("area") int area, 
 			@Param("price") int price);		// @Param은 파라미터들을 map으로 구성해준다.  >> DAO에서만 사용 
-	
+
 	public int insertEstate(Estate estate);
 	
-//	public int insertEstate(
-//			@Param("realtorId") int realtorId,
-//			@Param("address") String address, 
-//			@Param("area") int area, 
-//			@Param("type") String type, 
-//			@Param("price") int price, 
-//			@Param("rentPrice") Integer rentPrice);
+	public int insertEstateAsField(
+			@Param("realtorId") int realtorId
+			,@Param("address") String address
+			,@Param("area") int area
+			,@Param("type") String type
+			,@Param("price") int price
+			,@Param("rentPrice") Integer rentPrice
+			); 
+	
 }
