@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quiz.lesson06.dao.FavoriteDAO">
+	<insert id="insertFavorite" parameterType="map">
+		INSERT INTO `favorites`
+		(
+			`name`
+			,`url`
+		)
+		VALUES
+		(
+			#{name}
+			,#{url}
+		)
+		
+	</insert>
+	
+	<select id="selectFavoriteList" resultType="com.quiz.lesson06.model.Favorites">
+		SELECT 
+			`id`
+			,`name`
+			,`url`
+		FROM
+			`favorites`
+	</select>
+</mapper>
